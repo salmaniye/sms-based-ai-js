@@ -2,6 +2,7 @@
 
 import OpenAI from 'openai';
 import { NextRequest, NextResponse } from 'next/server';
+import { BESCI_SYSTEM_PROMPT } from '@/app/utils/prompts';
 
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -13,9 +14,16 @@ export async function POST(req: NextRequest) {
     const { messages } = await req.json();
 
     try {
+        // Insert system prompt at the beginning of the conversation
+        const systemMessage = {
+            role: 'system',
+            content: BESCI_SYSTEM_PROMPT 
+        };
+
+        // Add the system message to the conversation
         const response = await client.chat.completions.create({
             model: MODEL,
-            messages,
+            messages: [systemMessage, ...messages],
             temperature: 0.05,
             max_tokens: 500,
         });
@@ -27,10 +35,6 @@ export async function POST(req: NextRequest) {
     } catch (error) {
         return NextResponse.json({ error: 'Failed to get response from GPT-4' }, { status: 500 });
     }
-}
-
-export function GET() {
-    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 }
 
 function splitSms(response: string) {
