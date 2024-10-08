@@ -33,6 +33,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ chunks: smsChunks });
     } catch (error) {
+        console.error("Error fetching response from GPT-4", error);
         return NextResponse.json({ error: 'Failed to get response from GPT-4' }, { status: 500 });
     }
 }
