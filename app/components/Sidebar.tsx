@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
       {!isCollapsed && (
         <div className="p-4">
           <h2 className="text-lg font-bold mb-4">
-            Welcome to Skylark's SMS Service Mockup
+            Skylark&apos;s SMS Service Mockup
           </h2>
           <hr className="border-black mb-4" />
           <p className="mb-4">
