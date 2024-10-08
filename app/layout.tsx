@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100">
-        <div className="flex flex-col h-3/4">
+        <div className="flex flex-col">
           {/* Main content area */}
           <main className="flex-grow overflow-auto">
             {children}

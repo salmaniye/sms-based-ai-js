@@ -1,14 +1,14 @@
 /* app/components/Message.module.css */
 .message {
     max-width: 70%;
-    margin: 10px;
+    margin: 1px;
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 16px;
   }
   
   .user {
-    background-color: #DCF8C6; /* WhatsApp greenish bubble */
+    background-color: #DCF8C6; /* Greenish bubble for users */
     align-self: flex-end; /* Aligns to the right */
   }
   
