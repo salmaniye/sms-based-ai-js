@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'Health Advisor Chatbot',
+  title: 'Skylark SMS',
   description: 'A chatbot providing health advice and guidance.',
 };
 
