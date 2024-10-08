@@ -48,7 +48,7 @@ function splitSms(response: string) {
   const cleanedResponse = response.replace(/Message \d+:/g, "").trim();
 
   // Split response at every "(x/x)" but keep the delimiter "(x/x)" with the message
-  let result = cleanedResponse.split(regex).map((msg, index) => {
+  const result = cleanedResponse.split(regex).map((msg, index) => {
     // Add back the corresponding delimiter (e.g., "(1/6)") to the end of each chunk
     const match = response.match(regex);
     return match && match[index] ? `${msg} ${match[index]}` : msg;
